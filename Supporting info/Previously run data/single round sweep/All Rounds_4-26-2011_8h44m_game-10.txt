@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	100	400	0	10

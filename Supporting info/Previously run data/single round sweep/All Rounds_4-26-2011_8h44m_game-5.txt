@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	0	342	158	5

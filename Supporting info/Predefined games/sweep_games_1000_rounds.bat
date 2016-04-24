@@ -1,0 +1,21 @@
+java -jar Model.jar normal 1000 1000 1 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 2 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 3 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 4 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 5 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 6 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 7 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 8 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 9 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 10 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 11 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 12 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 13 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 14 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 15 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 16 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 17 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 18 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 19 .424 .1 .023 .1 .111 .1
+java -jar Model.jar normal 1000 1000 20 .424 .1 .023 .1 .111 .1
+pause

@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	208	197	95	6

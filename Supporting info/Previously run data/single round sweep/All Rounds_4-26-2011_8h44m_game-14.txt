@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	30	416	54	14

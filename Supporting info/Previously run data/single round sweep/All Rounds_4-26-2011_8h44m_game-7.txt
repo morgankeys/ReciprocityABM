@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	116	263	121	7

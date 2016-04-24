@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	463	35	2	12

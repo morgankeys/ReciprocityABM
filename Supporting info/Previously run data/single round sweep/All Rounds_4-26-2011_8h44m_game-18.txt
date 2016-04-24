@@ -1,0 +1,2 @@
+Round	Out	Left	Right	Game Type
+1	43	434	23	18
