@@ -13,3 +13,7 @@ Scenarios
 
 - Sweep games for 1000 rounds. 100 agents, 500 games per round. Repeats for each of 20 game types.
 
+# Dependencies
+* Colt open source libraries for high performance scientific and technical computing in Java
+    * cern.jet.random.*
+* Repast Simphony
