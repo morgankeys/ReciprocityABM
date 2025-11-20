@@ -43,3 +43,6 @@ bin/
 
 # Model output files
 output/
+Agent History_*.txt
+Toss-Ups_*.txt
+All Rounds_*.txt
