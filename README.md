@@ -84,25 +84,21 @@ This creates: `target/reciprocity-abm-1.0-SNAPSHOT.jar`
 **Important Notes**:
 - Your rebuild creates a **"thin JAR"** (~10KB) containing only your compiled code
 - It does **NOT** overwrite `dist/model.jar` (which remains as the reference build)
-- The thin JAR requires `lib/` dependencies on the classpath (see Step 5)
+- The thin JAR's manifest automatically references `lib/` dependencies, so you can run it with `-jar`
 
-### Step 5: Run Your Build (Requires Classpath)
+### Step 5: Run Your Build
 
-Because the rebuilt JAR is "thin" (code only), you must include the `lib/` directory:
-
-```bash
-java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model
-```
-
-**On Windows**, use semicolons instead of colons:
+The JAR manifest automatically references the `lib/` directory, so you can run it simply:
 
 ```bash
-java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar;lib/*" jSocialPreference.Model
+java -jar target/reciprocity-abm-1.0-SNAPSHOT.jar
 ```
 
 **Comparison of Run Commands**:
-- **Pre-built JAR**: `java -jar dist/model.jar` (everything bundled, no classpath needed)
-- **Your rebuild**: `java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model` (needs external `lib/` dependencies)
+- **Pre-built JAR**: `java -jar dist/model.jar` (fat JAR with everything bundled)
+- **Your rebuild**: `java -jar target/reciprocity-abm-1.0-SNAPSHOT.jar` (thin JAR with manifest classpath)
+
+**Note**: The rebuilt JAR must remain in the `target/` directory (or maintain its relative position to `lib/`) because the manifest uses relative paths to find dependencies.
 
 ---
 
@@ -150,20 +146,20 @@ The model accepts command-line parameters:
 
 ### Normal Run
 ```bash
-java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model \
+java -jar target/reciprocity-abm-1.0-SNAPSHOT.jar \
   normal [numAgents] [numRounds] [gameNumber] \
   [rhoMean] [rhoSD] [sigmaMean] [sigmaSD] [thetaMean] [thetaSD]
 ```
 
 **Example**:
 ```bash
-java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model \
+java -jar target/reciprocity-abm-1.0-SNAPSHOT.jar \
   normal 1000 100 3 0.424 0.1 0.023 0.1 0.111 0.1
 ```
 
 ### Default Run (No Parameters)
 ```bash
-java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model
+java -jar target/reciprocity-abm-1.0-SNAPSHOT.jar
 ```
 
 Uses defaults: 1000 agents, 100 rounds, game type 3
@@ -214,9 +210,10 @@ For IntelliJ IDEA or Eclipse:
 - The original `dist/model.jar` remains unchanged
 - Your rebuild is a "thin JAR" (code only) while `dist/model.jar` is a "fat JAR" (includes all dependencies)
 
-**"Why different run commands for dist/model.jar vs my build?"**:
-- `dist/model.jar` = Fat JAR → Run with: `java -jar dist/model.jar`
-- `target/reciprocity-abm-1.0-SNAPSHOT.jar` = Thin JAR → Run with: `java -cp "target/...:lib/*" jSocialPreference.Model`
+**"Can I move the rebuilt JAR to another location?"**:
+- The rebuilt JAR uses relative paths in its manifest to find `lib/` dependencies
+- If you move the JAR, you must also move `lib/` and maintain the relative path structure
+- Alternatively, use `dist/model.jar` (fat JAR) which is completely standalone
 
 ---
 
