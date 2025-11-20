@@ -34,7 +34,10 @@ java -jar dist/model.jar
 
 The `dist/model.jar` is a self-contained executable JAR (69MB) that includes all dependencies.
 
-**Note**: This is a "fat JAR" - you can run it standalone with `-jar` because everything is bundled inside. This is how I compiled the model originally in grad school. See below if you want to build from source using Maven.
+**Note**: 
+- This is how I compiled the model originally in grad school. See below if you want to build from source using Maven.
+- This is a "fat JAR" - you can run it standalone with `-jar` because everything is bundled inside.
+- Since this is preserved the original build, it doesn't print to output folder (I added that later). Output will print to the root directory.
 
 ---
 
@@ -164,6 +167,22 @@ java -cp "target/reciprocity-abm-1.0-SNAPSHOT.jar:lib/*" jSocialPreference.Model
 ```
 
 Uses defaults: 1000 agents, 100 rounds, game type 3
+
+---
+
+## Output Files
+
+When you run the model, it generates three types of output files:
+- `Agent History_[timestamp]_game-[num].txt` - Agent parameter evolution over time
+- `Toss-Ups_[timestamp]_game-[num].txt` - Game decision records
+- `All Rounds_[timestamp]_game-[num].txt` - Per-round outcome summaries
+
+**Output Location**: All files are written to timestamped subdirectories under `output/`
+- Example: `output/2025-11-20_12h10m/`
+- Each run creates a new timestamped directory
+- The `output/` directory is ignored by Git to keep the repository clean
+
+**Note**: Original runs from the final paper are preserved in `Supporting info/Previously run data/`.
 
 ---
 

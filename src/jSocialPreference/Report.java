@@ -1,5 +1,6 @@
 package jSocialPreference;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
@@ -31,20 +32,32 @@ public class Report{
 	public String h 	= Integer.toString(now.get(Calendar.HOUR_OF_DAY));
 	public String min 	= Integer.toString(now.get(Calendar.MINUTE));
 	
+	// Create timestamped output directory
+	public String timestamp = y+"-"+m+"-"+d+"_"+h+"h"+min+"m";
+	public String outputDir = "output/"+timestamp+"/";
 	
 	public Report(){
 		allResults 	= new ArrayList<int[]>();
 		agents		= model.agentList;
 		games		= model.games;
+		
+		// Create output directory if it doesn't exist
+		File dir = new File(outputDir);
+		if (!dir.exists()) {
+			if (!dir.mkdirs()) {
+				System.err.println("ERROR: Failed to create output directory: " + outputDir);
+			}
+		}
+		
 		try{
-			agentOut = new FileWriter("Agent History_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			agentOut = new FileWriter(outputDir+"Agent History_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
 			agentFile = new PrintWriter(agentOut);
 			String header = "Round\t";
 			//for(int id=1;id<=agents.size();id++){header+=id+"_rho\t"+id+"_sig\t"+id+"_thet\t";}
 			for(int id=1;id<=agents.size();id++){header+=id+"_thet\t";}
 			agentFile.println(header);
 			
-			tossOut		= new FileWriter("Toss-Ups_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			tossOut		= new FileWriter(outputDir+"Toss-Ups_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
 			tossFile	= new PrintWriter(tossOut);
 		}catch(Exception e){System.out.println("ERROR: "+e.getMessage());}
 	}
@@ -93,7 +106,7 @@ public class Report{
 			}
 		}
 		try{
-			FileWriter fstream = new FileWriter("All Rounds_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			FileWriter fstream = new FileWriter(outputDir+"All Rounds_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
 			PrintWriter outfile = new PrintWriter(fstream);
 
 			outfile.println("Round\tOut\tLeft\tRight\tGame Type");

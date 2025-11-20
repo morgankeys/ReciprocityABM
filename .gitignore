@@ -40,3 +40,6 @@ bin/
 # Create exception for dependency JARs and pre-built distribution
 !lib/*.jar
 !dist/*.jar
+
+# Model output files
+output/
