@@ -174,8 +174,9 @@ When you run the model, it generates three types of output files:
 - `All Rounds_[timestamp]_game-[num].txt` - Per-round outcome summaries
 
 **Output Location**: All files are written to timestamped subdirectories under `output/`
-- Example: `output/2025-11-20_12h10m/`
-- Each run creates a new timestamped directory
+- Example: `output/2025-11-20_12h49m24s/`
+- Each run creates a new timestamped directory (down to the second for uniqueness)
+- Multiple runs within the same second are extremely unlikely, but if needed, you can add milliseconds
 - The `output/` directory is ignored by Git to keep the repository clean
 
 **Note**: Original runs from the final paper are preserved in `Supporting info/Previously run data/`.

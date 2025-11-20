@@ -31,9 +31,10 @@ public class Report{
 	public String y 	= Integer.toString(now.get(Calendar.YEAR));
 	public String h 	= Integer.toString(now.get(Calendar.HOUR_OF_DAY));
 	public String min 	= Integer.toString(now.get(Calendar.MINUTE));
+	public String sec 	= Integer.toString(now.get(Calendar.SECOND));
 	
 	// Create timestamped output directory
-	public String timestamp = y+"-"+m+"-"+d+"_"+h+"h"+min+"m";
+	public String timestamp = y+"-"+m+"-"+d+"_"+h+"h"+min+"m"+sec+"s";
 	public String outputDir = "output/"+timestamp+"/";
 	
 	public Report(){
@@ -50,14 +51,14 @@ public class Report{
 		}
 		
 		try{
-			agentOut = new FileWriter(outputDir+"Agent History_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			agentOut = new FileWriter(outputDir+"Agent History_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m"+sec+"s_game-"+model.gameNumber+".txt");
 			agentFile = new PrintWriter(agentOut);
 			String header = "Round\t";
 			//for(int id=1;id<=agents.size();id++){header+=id+"_rho\t"+id+"_sig\t"+id+"_thet\t";}
 			for(int id=1;id<=agents.size();id++){header+=id+"_thet\t";}
 			agentFile.println(header);
 			
-			tossOut		= new FileWriter(outputDir+"Toss-Ups_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			tossOut		= new FileWriter(outputDir+"Toss-Ups_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m"+sec+"s_game-"+model.gameNumber+".txt");
 			tossFile	= new PrintWriter(tossOut);
 		}catch(Exception e){System.out.println("ERROR: "+e.getMessage());}
 	}
@@ -106,7 +107,7 @@ public class Report{
 			}
 		}
 		try{
-			FileWriter fstream = new FileWriter(outputDir+"All Rounds_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m_game-"+model.gameNumber+".txt");
+			FileWriter fstream = new FileWriter(outputDir+"All Rounds_"+m+"-"+d+"-"+y+"_"+h+"h"+min+"m"+sec+"s_game-"+model.gameNumber+".txt");
 			PrintWriter outfile = new PrintWriter(fstream);
 
 			outfile.println("Round\tOut\tLeft\tRight\tGame Type");
