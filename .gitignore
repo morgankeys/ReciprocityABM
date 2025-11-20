@@ -30,3 +30,13 @@
 hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java
+
+# Recommended by AI
+target/
+build/
+bin/
+*.class
+
+# Create exception for dependency JARs and pre-built distribution
+!lib/*.jar
+!dist/*.jar
