@@ -30,3 +30,19 @@
 hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java
+
+# Recommended by AI
+target/
+build/
+bin/
+*.class
+
+# Create exception for dependency JARs and pre-built distribution
+!lib/*.jar
+!dist/*.jar
+
+# Model output files
+output/
+Agent History_*.txt
+Toss-Ups_*.txt
+All Rounds_*.txt
